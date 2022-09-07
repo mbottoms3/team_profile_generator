@@ -12,10 +12,10 @@ const fs = require('fs');
 const jest = require('jest');
 
 const path = require('path');
-const OUTPUT_DIR = path.resolve(__dirname, "output");
-const outputPath = path.join(OUTPUT_DIR, "team.html");
+const DIST_DIR = path.resolve(__dirname, "dist");
+const outputPath = path.join(DIST_DIR, "team.html");
 
-
+const generateJS = require('./src/generate');
 
 //Empty Array
 const teamMembers = [];
@@ -56,6 +56,7 @@ const promptManager = () => {
 })
 };
 
+// Will get called after finishing manager prompt or anytime user wants to add another employee
 const mainMenu = () => {
     return inquirer.prompt ([
         {
@@ -147,78 +148,14 @@ const promptIntern = () => {
     })
 };
 
+// Gets called if user is done adding employees
 const buildTeam = () => {
     console.log("finished!");
-    if(!fs.existsSync(OUTPUT_DIR)) {
-        fs.mkdirSync(OUTPUT_DIR)
+    if(!fs.existsSync(DIST_DIR)) {
+        fs.mkdirSync(DIST_DIR)
     }
-    fs.writeFile(outputPath, generateSite(teamMembers), "utf-8");
+    fs.writeFileSync(outputPath, generateJS(teamMembers), "utf-8");
 }
 
-// const team = {
-//     Manager: [{
-//         type: "input",
-//         message: "What is the manager's name?",
-//         name: "mgrName"
-//     },
-//     {
-//         type: "input",
-//         message: "What is the manager's id?",
-//         name: "mgrId"
-//     },
-//     {
-//         type: "input",
-//         message: "What is the manager's email?",
-//         name: "mgrEmail"
-//     },
-//     {
-//         type: "input",
-//         message: "What is the manager's office number?",
-//         name: "officeNum"
-//     }],
-
-//     Engineer: [{
-//         type: "input",
-//         message: "What is the engineer's name?",
-//         name: "engName"
-//     },
-//     {
-//         type: "input",
-//         message: "What is the engineer's id?",
-//         name: "engId"
-//     },
-//     {
-//         type: "input",
-//         message: "What is the engineer's email?",
-//         name: "engEmail"
-//     },
-//     {
-//         type: "input",
-//         message: "What is the engineer's github?",
-//         name: "github"
-//     }],
-
-//     Intern: [{
-//         type: "input",
-//         message: "What is the intern's name?",
-//         name: "intName"
-//     },
-//     {
-//         type: "input",
-//         message: "What is the intern's id?",
-//         name: "intId"
-//     },
-//     {
-//         type: "input",
-//         message: "What is the intern's email?",
-//         name: "intEmail"
-//     },
-//     {
-//         type: "input",
-//         message: "What is the intern's school?",
-//         name: "school"
-//     }],
-// }
-
-
+// Kicks off prompts 
 promptManager();
