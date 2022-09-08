@@ -14,48 +14,10 @@
     <header>
         <h1>Team Profiles</h1>
     </header>
-    <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <i class="fa-solid fa-glasses"></i>
-          <i class="fa-solid fa-user-graduate"></i>
-          
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-    </div>
-
-    <!-- for interns and engineers -->
-    <div class="card text-bg-light mb-3" style="max-width: 18rem;">
-        <div class="card-header">
-            <h2>name goes here</h2>
-            <h5><i class="fa-solid fa-mug-hot"></i> title goes here</h5>
-        </div>
-        <div class="card-body">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item"> id </li>
-                <li class="list-group-item"> email </li>
-                <li class="list-group-item"> variable </li>
-              </ul>
-        </div>
-    </div>
-
-    <!-- for manager -->
-    <div class="card text-bg-info mb-3" style="max-width: 18rem;">
-        <div class="card-header">
-            <h2>manager name goes here</h2>
-            <h5><i class="fa-solid fa-mug-hot"></i> title goes here</h5>
-        </div>
-        <div class="card-body">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item text-bg-info"> id </li>
-                <li class="list-group-item text-bg-info"> email </li>
-                <li class="list-group-item text-bg-info"> office number </li>
-              </ul>
-        </div>
-        </div>
-    </div>
+    
+    <main>
+        ${generateTeam(team)}
+    </main>
 </body>
 </html>
 
@@ -63,3 +25,45 @@
 
 
 
+<!-- <div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <i class="fa-solid fa-glasses"></i>
+      <i class="fa-solid fa-user-graduate"></i>
+      
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+</div>
+
+<!-- for interns and engineers -->
+<div class="card text-bg-light mb-3" style="max-width: 18rem;">
+    <div class="card-header">
+        <h2>name goes here</h2>
+        <h5><i class="fa-solid fa-mug-hot"></i> title goes here</h5>
+    </div>
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"> id </li>
+            <li class="list-group-item"> email <a href="mailto: "></a></li>
+            <li class="list-group-item"> variable <link rel="github profile" href="https://github.com/${}"></li>
+          </ul>
+    </div>
+</div>
+
+<!-- for manager -->
+<div class="card text-bg-info mb-3" style="max-width: 18rem;">
+    <div class="card-header">
+        <h2>manager name goes here</h2>
+        <h5><i class="fa-solid fa-mug-hot"></i> title goes here</h5>
+    </div>
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item text-bg-info"> id </li>
+            <li class="list-group-item text-bg-info"> email </li>
+            <li class="list-group-item text-bg-info"> office number </li>
+          </ul>
+    </div>
+    </div>
+</div> -->
