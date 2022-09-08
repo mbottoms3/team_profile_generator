@@ -1,16 +1,15 @@
-// create classes, methods 
-// index.js will kick everything off
-// use inquirer to ask questions in the terminal
-// based on responses, perform certain functions-build object based on responses. run function to add another employee or be done.  build a function to loop and append.  add to an array and then dynamically build the finished array
+// Require Custom Modules
 const Employee = require('./lib/employee');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
 const Manager = require('./lib/manager');
 
+// Require inquirer, fs and jest
 const inquirer = require('inquirer');
 const fs = require('fs');
 const jest = require('jest');
 
+// Require path for html generation
 const path = require('path');
 const DIST_DIR = path.resolve(__dirname, "dist");
 const outputPath = path.join(DIST_DIR, "team.html");
@@ -49,7 +48,7 @@ const promptManager = () => {
     }
 ])
 .then(answers => {
-    console.log(answers);
+    // console.log(answers);
     const manager = new Manager(answers.mgrName, answers.mgrId, answers.mgrEmail, answers.officeNum);
     teamMembers.push(manager);
     mainMenu();
